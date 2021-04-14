@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Category
 from django.shortcuts import render
 
 def PostList(ListView):
@@ -21,6 +21,12 @@ def index(request):
             'post_list': posts,
         }
     )
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        return context
 
 def single_post_page(request, pk):
     post = Post.objects.get(pk=pk)
