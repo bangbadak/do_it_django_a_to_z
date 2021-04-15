@@ -41,7 +41,7 @@ def single_post_page(request, pk):
 
 def category_page(request, slug):
     if slug == 'no_category':
-        category ='미분류'
+        category = '미분류'
         post_list = Post.objects.filter(cateogyr=None)
     else:
         category = Category.objects.get(slug=slug)
