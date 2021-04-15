@@ -33,7 +33,7 @@ def __str__(self):
     return f'[{self.pk}]{self.title} :: {self.author}'
 
 def get_absolute_url(self):
-    return f'/blog/{self.pk}/'
+    return f'/blog/category/{self.slug}/'
 
 def get_file_name(self):
     return os.path.basename(self.file_upload.name)
