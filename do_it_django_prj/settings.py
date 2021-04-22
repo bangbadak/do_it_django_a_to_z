@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'single_pages',
     'django_extensions',
     'crispy_forms',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
