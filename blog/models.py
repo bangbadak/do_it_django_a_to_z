@@ -51,8 +51,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.author}::{self.content}'
+
     def get_absolute_url(self):
         return f'{self.post.get_absolute_url()}#comment-{self.pk}'
+
+    def get_avatar_url(self):
+        if self.author.socialaccount_set.exists():
+            return self.author.socialaccount_set.first().get_avatar_url()
+        else:
+            return 'f'https://doitdjango.com/avatar/id/부여받은 id/ 부여받은 key/svg/{self.author.email}'
 
 # Create your models here.
 
