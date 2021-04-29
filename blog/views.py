@@ -10,6 +10,7 @@ from .forms import CommentForm
 def PostList(ListView):
     model = Post
     ordering = '-pk'
+    paginate_by = 5
 
 def PostDetail(DetailView):
     model = Post
